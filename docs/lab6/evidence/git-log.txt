@@ -1,0 +1,27 @@
+* 6e5b884 (HEAD -> assignment5-lab6) test: add course registration BDD scenarios
+* f820974 feat: add sibling fee policy with 25 percent discount (green)
+* a0aa7e8 test: add sibling fee discount policy (red)
+* 071a15b refactor: inject invoice file writer (green)
+* b4206f8 test: verify injectable invoice writer (red)
+* d35e96a refactor: use policy registry for invoice types
+* 545d1fd refactor: extract invoice fee policies
+* 4f71975 refactor: replace invoice magic numbers with constants
+* 6c42dbf test: characterize legacy invoice behavior
+* b7f4096 feat: handle dropping unregistered courses (green)
+* de77926 test: reject dropping an unregistered course (red)
+* 80967ff feat: implement course dropping (green)
+* f2c6a1d test: add course drop test (red)
+* 92d68a4 feat: prevent duplicate course registration (green)
+* e90252e test: reject duplicate course registration (red)
+* 508fac6 feat: enforce 18-hour registration limit (green)
+* 3e139e5 test: assert RegistrationError for hour limit (red)
+* 4583f8f test: add 18-hour registration limit (red)
+* b86e517 feat: implement basic course registration (green)
+* a5d9220 test: add course registration test (red)
+* dd1f433 docs: add Lab 6 assignment plan and setup
+* 7156c32 (origin/main, origin/HEAD, main) chore: add starter .gitignore
+*   8cb3883 Merge pull request #1 from muhamedabutalib-2006/feature/add-mohamed
+|\  
+| * 346d61b (origin/feature/add-mohamed) docs: add Mohamed Gomaa to team roster
+|/  
+* c2c1c92 Initial commit

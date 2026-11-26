@@ -4,3 +4,12 @@ __pycache__/
 .vscode/
 *.log
 .DS_Store
+
+# Python generated files
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+.ruff_cache/
