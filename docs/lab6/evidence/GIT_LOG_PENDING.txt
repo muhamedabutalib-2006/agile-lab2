@@ -1,0 +1,3 @@
+The supplied source ZIP does not contain a .git directory. No Git history has been fabricated.
+Run git log --oneline --decorate --graph -20 from the actual team repository and save the output or screenshot here.
+The commit plan is in ../tdd_commit_plan.md.

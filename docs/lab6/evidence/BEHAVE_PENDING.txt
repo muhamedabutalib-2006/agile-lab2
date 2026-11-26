@@ -1,0 +1,5 @@
+Behave is not installed in the offline build environment, so no Behave run is claimed here.
+In the local lab6 virtual environment, run:
+  python -m pip install -r requirements.txt
+  python -m behave
+Save the all-green console output as evidence/behave.txt and take the required terminal screenshot.
