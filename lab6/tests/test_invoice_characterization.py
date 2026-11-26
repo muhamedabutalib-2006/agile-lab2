@@ -30,3 +30,7 @@ def test_invoice_uses_injected_writer(student):
     fake = FakeWriter()
     make_invoice(student, "regular", writer=fake)
     assert fake.saved["2023001"] == "Invoice for 2023001: 7200 EGP"
+
+def test_sibling_policy_gets_25_percent_discount(student, tmp_path, monkeypatch):
+    monkeypatch.chdir(tmp_path)
+    assert make_invoice(student, "sibling") == 5400
