@@ -15,17 +15,15 @@ class InternationalPolicy:
     def fee(self, hours):
         return hours * self.RATE + self.SERVICE_FEE
 
+POLICIES = {
+    "regular": RegularPolicy(),
+    "scholarship": ScholarshipPolicy(),
+    "international": InternationalPolicy(),
+}
+
 def make_invoice(student, kind):
-    hours = sum(student.courses.values())
-    if kind == "regular":
-        policy = RegularPolicy()
-    elif kind == "scholarship":
-        policy = ScholarshipPolicy()
-    elif kind == "international":
-        policy = InternationalPolicy()
-    else:
-        raise ValueError(f"Unknown student type: {kind}")
-    total = policy.fee(hours)
+    policy = POLICIES[kind]
+    total = policy.fee(student.total_hours)
     text = "Invoice for " + student.student_id + ": " + str(int(total)) + " EGP"
     f = open("invoice_" + student.student_id + ".txt", "w")
     f.write(text)
