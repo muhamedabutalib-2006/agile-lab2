@@ -15,10 +15,17 @@ class InternationalPolicy:
     def fee(self, hours):
         return hours * self.RATE + self.SERVICE_FEE
 
+class SiblingPolicy:
+    DISCOUNT_RATE = 0.25
+
+    def fee(self, hours):
+        return hours * FEE_PER_HOUR * (1 - self.DISCOUNT_RATE)
+
 POLICIES = {
     "regular": RegularPolicy(),
     "scholarship": ScholarshipPolicy(),
     "international": InternationalPolicy(),
+    "sibling": SiblingPolicy(),
 }
 
 class FileWriter:
