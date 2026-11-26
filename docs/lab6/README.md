@@ -4,13 +4,13 @@ This folder follows the Moodle checklist shown for Assignment 5 and the uploaded
 
 ## Folder map
 
-- `../lab6/registration.py` — course registration module.
-- `../lab6/tests/test_registration.py` — TDD tests, including the missing-course branch needed for 100% statement coverage.
-- `../lab6/features/registration.feature` — BDD feature with the required drop scenario.
-- `../lab6/features/steps/registration_steps.py` — Behave steps, including the drop step.
-- `../lab6/legacy_invoice.py` — original legacy invoice snapshot; leave unchanged.
-- `../lab6/invoice.py` — refactored policy-based invoice with `SiblingPolicy`.
-- `../lab6/tests/test_invoice_characterization.py` — characterization and SiblingPolicy tests.
+- `../../lab6/registration.py` — course registration module.
+- `../../lab6/tests/test_registration.py` — TDD tests, including the missing-course branch needed for 100% statement coverage.
+- `../../lab6/features/registration.feature` — BDD feature with the required drop scenario.
+- `../../lab6/features/steps/registration_steps.py` — Behave steps, including the drop step.
+- `../../lab6/legacy_invoice.py` — original legacy invoice snapshot; leave unchanged.
+- `../../lab6/invoice.py` — refactored policy-based invoice with `SiblingPolicy`.
+- `../../lab6/tests/test_invoice_characterization.py` — characterization and SiblingPolicy tests.
 - `smells.md` — Task C1 table.
 - `coverage_answer.md` — Task A1 coverage explanation.
 - `team_story.feature` and `team_story.md` — Part D story and three scenarios (confirm against the actual team backlog).
@@ -41,13 +41,15 @@ python -m behave
 
 For 100% statement coverage, the report for `registration.py` should show `100%` and no missing lines. For BDD, all scenarios should pass, including `Drop a registered course`.
 
-The current offline build environment could not install Behave, so the Behave suite must be run in the user's local virtual environment after installing `requirements.txt`.
+Behave was successfully run in the local virtual environment: 1 feature, 7 scenarios, and 28 steps passed.
 
-## Evidence still required from the actual team repo
+## Verified evidence
 
-1. `git log --oneline --decorate --graph -20` showing one commit per TDD cycle, tests before implementation.
-2. A screenshot of the local terminal's 100% coverage report.
-3. The Behave all-green terminal output.
-4. Confirmation that `team_story.feature` matches a real story in the team's Sprint 0 / Sprint 1 backlog.
+- `evidence/pytest.txt` — complete pytest result: 10 passed.
+- `evidence/coverage.txt` — registration coverage: 100%.
+- `evidence/behave.txt` — Behave result: 7 scenarios and 28 steps passed.
+- `evidence/git-log.txt` — actual branch history.
 
-These items depend on the user's actual Git repository, local terminal, and Product Owner agreement; no fake screenshots or commit history are included.
+The handout also requests a genuine screenshot of the terminal coverage report. Save it as `evidence/coverage-screenshot.png`.
+
+Confirm the Part D story and scenarios with the team before submission.

@@ -1,23 +1,46 @@
-# TDD commit and evidence checklist
+# Lab 6 — Verified Git history
 
-The ZIP archive does not contain the team's `.git` repository. Do not present a generated or simulated log as team history. Perform the following Red → Green → Refactor steps on the actual team branch and capture `git log` from that repository.
+The following commits were taken from the actual `assignment5-lab6` branch.
 
-Suggested cycle boundaries:
+## Part A — Course registration TDD
 
-| Cycle | RED: commit failing test first | GREEN: commit minimal implementation | REFACTOR: commit cleanup after tests pass |
-|---|---|---|---|
-| Registration add | `test: cover registering a course` | `feat: record registered course hours` | `refactor: clarify registration state` |
-| Credit-hour limit | `test: reject registrations above 18 hours` | `feat: enforce 18-hour limit` | `refactor: keep rejected registration atomic` |
-| Duplicate / drop | `test: cover duplicate and drop rules` | `feat: enforce duplicate and drop rules` | `refactor: clarify registration errors` |
-| Drop missing-course edge | `test: cover dropping an unregistered course` | `fix: reject dropping an unregistered course` | `refactor: simplify drop validation` |
-| Sibling invoice policy | `test: add sibling fee characterization` | `feat: add 25 percent sibling policy` | `refactor: keep fee policy lookup unchanged` |
+| Commit | Recorded change |
+|---|---|
+| `a5d9220` | RED — add course registration test |
+| `b86e517` | GREEN — implement basic course registration |
+| `4583f8f` | RED — add 18-hour registration limit test |
+| `3e139e5` | RED — assert RegistrationError for hour limit |
+| `508fac6` | GREEN — enforce 18-hour registration limit |
+| `e90252e` | RED — reject duplicate course registration |
+| `92d68a4` | GREEN — prevent duplicate course registration |
+| `f2c6a1d` | RED — add course drop test |
+| `80967ff` | GREEN — implement course dropping |
+| `de77926` | RED — reject dropping an unregistered course |
+| `b7f4096` | GREEN — handle dropping unregistered courses |
 
-The final source tree in `lab6/` contains the completed implementation and tests. To prove the TDD sequence, the actual repository history must show the test-first commits preceding their implementation commits.
+## Part C — Invoice characterization and refactoring
 
-Capture evidence with:
+| Commit | Recorded change |
+|---|---|
+| `6c42dbf` | Characterize legacy invoice behavior |
+| `4f71975` | Replace invoice magic numbers with constants |
+| `545d1fd` | Extract invoice fee policies |
+| `d35e96a` | Introduce policy registry |
+| `b4206f8` | RED — test injectable invoice writer |
+| `071a15b` | GREEN — inject invoice file writer |
+| `a0aa7e8` | RED — add sibling fee discount test |
+| `f820974` | GREEN — add 25 percent sibling fee policy |
 
-```bash
-git log --oneline --decorate --graph -20
-```
+## BDD
 
-Use the team's real branch name and authorship. Do not add a partner as co-author unless that person actually contributed and agrees.
+| Commit | Recorded change |
+|---|---|
+| `6e5b884` | Add course registration BDD scenarios and step definitions |
+
+The registration history shows tests committed before their corresponding implementation. The invoice work includes characterization tests, incremental refactoring, and test-first additions for writer injection and the sibling discount.
+
+The complete real Git output is saved in `evidence/git-log.txt`.
+
+To reproduce it from the repository root:
+
+`git log --oneline --decorate --graph -30`

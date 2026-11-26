@@ -1,25 +1,22 @@
-Feature: Patient nurse-call alert
+Feature: Room-specific nurse call alerts
   As a nurse
-  I want to receive alerts when patients request assistance
-  So that I can respond promptly
+  I want to receive notifications that identify the calling room
+  So that I can respond at the correct location
 
-  Scenario: Online patient call notifies the assigned nurse
-    Given the nurse-call unit for room "R101" is online
-    And room "R101" has nurse "N12" assigned
-    When the patient presses the call button in room "R101"
-    Then one active call is recorded for room "R101"
-    And nurse "N12" receives a call alert for room "R101"
+  Scenario: Nurse receives an identified alert
+    Given a patient call is created for configured room "R101"
+    When the alert reaches the nurse station
+    Then the notification displays room identifier "R101"
+    And the notification shows the active-call state
 
-  Scenario: Call is retained while the unit is offline
-    Given the nurse-call unit for room "R101" is offline
-    When the patient presses the call button in room "R101"
-    Then the call is stored locally as pending delivery
-    And the unit indicates that the call is pending
-    When the nurse-call unit reconnects
-    Then the pending call is synchronized
-    And the assigned nurse receives the call alert
+  Scenario: Unknown room is not misidentified
+    Given a call arrives with no valid room mapping
+    When the nurse station processes the event
+    Then the call is flagged as unassigned
+    And no incorrect room identifier is displayed
 
-  Scenario: Repeated press does not create duplicate active calls
-    Given room "R101" already has an active nurse call
-    When the patient presses the call button in room "R101" again
-    Then room "R101" still has exactly one active call
+  Scenario: Alerts from two rooms remain correctly identified
+    Given patient calls are created for configured rooms "R101" and "R102"
+    When both alerts reach the nurse station
+    Then one alert identifies room "R101"
+    And the other alert identifies room "R102"
