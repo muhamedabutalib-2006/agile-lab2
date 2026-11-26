@@ -1,5 +1,5 @@
 import pytest
-from registration import Student
+from registration import RegistrationError, Student
 
 def test_register_adds_hours():
     student = Student("2023001")
@@ -9,6 +9,6 @@ def test_register_adds_hours():
 def test_cannot_go_over_18_hours():
     student = Student("2023001")
     student.register("SET312", 15)
-    with pytest.raises(ValueError):
+    with pytest.raises(RegistrationError):
         student.register("SET472", 4)
     assert student.total_hours == 15
